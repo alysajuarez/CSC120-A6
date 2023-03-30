@@ -6,6 +6,17 @@ public class House extends Building {
   private ArrayList<String> residents;
   private boolean hasDiningRoom;
 
+
+
+  /**
+    * constructs attributes for House class
+    * @param String name 
+    *         name of house
+    * @param String address
+    *         address of house
+    * @param int nFloors
+    *         int of number of floors in house
+    */ 
   public House(String name, String address, int nFloors, boolean hasDiningRoom) {
     super(name, address, nFloors);
     this.residents = new ArrayList<String>();
@@ -23,6 +34,12 @@ public class House extends Building {
     return this.residents.size();
   }
 
+  
+  /** 
+  * method to add a resident to the house
+  * @param String name
+  *          name of resident to add to house
+  */
   public void moveIn(String name) {
     // check if this.residents contains name
     if (this.residents.contains(name)) {
@@ -34,6 +51,11 @@ public class House extends Building {
     System.out.println(name + " has just moved into " + this.name + "! Go say hello :-)");
   }
 
+  /** 
+  * method to remove a resident from the house
+  * @param String name
+  *          name of resident to remove from house
+  */
   public String moveOut(String name){
     if (!this.residents.contains(name)){
       throw new RuntimeException(name + " is not a resident of " + this.name);
@@ -42,6 +64,12 @@ public class House extends Building {
     return name + " has moved out of "+ this.name;
   }
 
+
+  /** 
+  * method to check if a person is a resident in this house
+  * @param String person
+  *          name of person to check 
+  */
   public boolean isResident(String person){
     if (this.residents.contains(person)) {
       //   if so: throw and exception
@@ -52,6 +80,12 @@ public class House extends Building {
     }
   }
 
+   /** 
+    * method to return string of class in a clean way 
+    * 
+    * @return String toString
+    *         string description of class
+    */  
   public String toString() {
     String description = super.toString();
     description += " There are currently " + this.nResidents() + " people living in this house.";
